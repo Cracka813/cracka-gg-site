@@ -10,16 +10,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Chakra+Petch:wght@600;700&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-.feature{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/7;
-  background:var(--glass);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;flex-direction:column;margin-bottom:34px}
-.feature .mh{height:150px;opacity:.9;filter:drop-shadow(0 0 24px rgba(180,0,255,.55))}
-.feature .play{position:absolute;width:82px;height:82px;border-radius:50%;background:var(--pink);display:flex;align-items:center;
-  justify-content:center;box-shadow:0 0 34px rgba(255,32,121,.6);font-size:30px;color:#2a0713}
-.feature small{position:absolute;bottom:16px;font-family:'Share Tech Mono';letter-spacing:2px;color:var(--mut)}
-.vph{aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;border-bottom:1px solid var(--line);
-  background:rgba(255,255,255,.02);color:var(--ac,var(--pink))}
-.vph .ic{font-size:38px}
-.vph small{font-family:'Share Tech Mono';font-size:11px;letter-spacing:1px;margin-top:6px;opacity:.85}
+.feature{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/9;
+  background:var(--glass);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;flex-direction:column;margin-bottom:14px;
+  box-shadow:0 0 44px -12px rgba(180,0,255,.55)}
+.feature iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.feature .mh{height:128px;opacity:.9;filter:drop-shadow(0 0 24px rgba(180,0,255,.55));animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.9}50%{opacity:.4}}
+.feature small{position:absolute;bottom:16px;font-family:'Share Tech Mono';letter-spacing:2px;color:var(--mut);font-size:12px}
+.feat-cap{text-align:center;font-family:'Share Tech Mono';letter-spacing:1.5px;color:var(--mut);font-size:12px;margin-bottom:34px;text-transform:uppercase}
+.feat-cap b{color:var(--pink)}
+.vidcard{display:block}
+.vidcard .card-body h3{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:16px;min-height:2.5em;margin-bottom:6px}
 </style>
 </head>
 <body>
@@ -45,17 +46,12 @@
 </div></div>
 
 <section><div class="wrap">
-  <div class="feature">
+  <div class="feature" id="feature">
     <img class="mh" src="Cracka_FPV_MadHatter_Transparent.png" alt="">
-    <div class="play">▶</div>
-    <small>// FEATURED STREAM — EMBED YOUR LATEST VOD HERE</small>
+    <small>// LOADING FEATURED VIDEO…</small>
   </div>
-  <div class="grid">
-    <div class="card" style="--ac:var(--pink)"><div class="vph"><span class="ic">▶</span><small>ADD VIDEO</small></div><div class="card-body"><h3>Episode / Set 01</h3><p>Title and short blurb for this video or stream.</p></div></div>
-    <div class="card" style="--ac:var(--cyan)"><div class="vph"><span class="ic">▶</span><small>ADD VIDEO</small></div><div class="card-body"><h3>Episode / Set 02</h3><p>Title and short blurb for this video or stream.</p></div></div>
-    <div class="card" style="--ac:var(--green)"><div class="vph"><span class="ic">▶</span><small>ADD VIDEO</small></div><div class="card-body"><h3>Episode / Set 03</h3><p>Title and short blurb for this video or stream.</p></div></div>
-    <div class="card" style="--ac:var(--purple)"><div class="vph"><span class="ic">▶</span><small>ADD VIDEO</small></div><div class="card-body"><h3>Episode / Set 04</h3><p>Title and short blurb for this video or stream.</p></div></div>
-  </div>
+  <div class="feat-cap" id="featCap">▶ Random pick from <b>@crackafpv</b> — reload for another</div>
+  <div class="grid" id="moreGrid"></div>
 </div></section>
 
 <footer class="foot"><div class="wrap">
@@ -65,5 +61,41 @@
   <div class="copy">© 2026 DJ Cracka Software Suite · cracka.gg · all rights reserved</div>
 </div></footer>
 <script>var b=document.getElementById('burger'),m=document.getElementById('menu');b.addEventListener('click',function(){m.classList.toggle('open')});</script>
+<script>
+(function(){
+  var CH="UCvV-q_fL9GVKG6OFsZx0KzA";
+  // Baked-in fallback so the box is never empty if the live feed can't be reached
+  var FB=[["0mJNqpanSk8","The Big sBang Theory | Mossy Oak"],["8NNkq1nItJg","Driftmas 2020 @ Showtime Speedway"],["RI3QddombEg","Just #SENDiT Bruh — FPV Freestyle"],["HDf96DAegMw","One Chip Challenge — FPV Freestyle Insanity"],["Joh1Nk5f598","Cave Men Edition — FPV Vlog + Bando"],["6qp_5L3yKD4","Tower Trippin' Freestyle Rippin'"],["Ko4-V6kndl0","The Drone Baptism — Vol. 2"],["UOPWK_xNDD4","Chill Mode = ON — FPV Freestyle"],["D7a-Ajwe08Y","Cracka's Custom FPV Quads"],["xj792ZYQ2XU","Five Minute LiPo Puff Session"],["-BMNvXFiOws","Tower Diving Pt. 2"],["VzEtxwGNZb8","My First Tattu — Wesley Chapel"],["V9EcEbl6Kow","Goin' To The Chapel"],["ivufOA-fhYY","Diving The Sulphur Springs Water Tower"]];
+  var AC=["var(--pink)","var(--cyan)","var(--green)","var(--purple)","var(--yellow)"];
+  var feat=document.getElementById('feature'),grid=document.getElementById('moreGrid');
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+  function render(list){
+    list=shuffle(list);
+    var f=list[0];
+    feat.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+f[0]+'?rel=0&modestbranding=1" title="'+esc(f[1])+'" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+    var html='';
+    for(var i=1;i<list.length&&i<=4;i++){
+      var v=list[i];
+      html+='<a class="card vidcard" href="https://www.youtube.com/watch?v='+v[0]+'" target="_blank" rel="noopener" style="--ac:'+AC[i%AC.length]+'">'
+        +'<div class="card-media"><img loading="lazy" src="https://i.ytimg.com/vi/'+v[0]+'/hqdefault.jpg" alt=""><div class="veil"></div><span class="badge">▶ Watch</span></div>'
+        +'<div class="card-body"><h3>'+esc(v[1])+'</h3><p>Cracka FPV · YouTube</p></div></a>';
+    }
+    grid.innerHTML=html;
+  }
+  var url="https://api.allorigins.win/raw?url="+encodeURIComponent("https://www.youtube.com/feeds/videos.xml?channel_id="+CH);
+  fetch(url).then(function(r){if(!r.ok)throw 0;return r.text();}).then(function(x){
+    var ids=x.match(/<yt:videoId>([^<]+)<\/yt:videoId>/g)||[];
+    var tits=x.match(/<media:title>([\s\S]*?)<\/media:title>/g)||[];
+    var list=[];
+    for(var i=0;i<ids.length;i++){
+      var id=ids[i].replace(/<\/?yt:videoId>/g,'');
+      var t=tits[i]?tits[i].replace(/<\/?media:title>/g,'').replace(/&amp;/g,'&').replace(/&quot;/g,'"').replace(/&#39;/g,"'").replace(/&lt;/g,'<').replace(/&gt;/g,'>'):'Cracka FPV';
+      if(id) list.push([id,t]);
+    }
+    render(list.length?list:FB);
+  }).catch(function(){render(FB);});
+})();
+</script>
 </body>
 </html>
