@@ -86,9 +86,7 @@
 var b=document.getElementById('burger'),m=document.getElementById('menu');b.addEventListener('click',function(){m.classList.toggle('open')});
 document.querySelectorAll('.fbtn').forEach(function(el){el.style.animationDelay=(-(Math.random()*13)).toFixed(2)+'s';});
 (function(){
-  // Live-pulls your current MakerWorld models on every page load (self-updating, no server needed).
-  var PROFILE="https://makerworld.com/en/@CrackaFPV/upload";
-  var PROXIES=[function(u){return "https://api.allorigins.win/raw?url="+encodeURIComponent(u);},function(u){return "https://corsproxy.io/?url="+encodeURIComponent(u);}];
+  // Reads your model list from same-origin models.json (refreshed twice daily by a scheduled browser sync).
   var IMG="?x-oss-process=image/resize,w_640/format/webp";
   var SHOW_NSFW=true, TILES=6;
   var AC=["var(--green)","var(--purple)","var(--cyan)","var(--pink)","var(--yellow)"];
@@ -112,25 +110,13 @@ document.querySelectorAll('.fbtn').forEach(function(el){el.style.animationDelay=
     }
     grid.innerHTML=html;
   }
-  function parseModels(html){
-    var m=html.match(/<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/);
-    if(!m)return null;
-    var nd; try{nd=JSON.parse(m[1]);}catch(e){return null;}
-    var d=(nd.props&&nd.props.pageProps&&nd.props.pageProps.designs)||[];
-    var out=[];
+  render(FALLBACK);
+  fetch('models.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json();}).then(function(j){
+    var d=(j&&j.models)||[],out=[];
     for(var i=0;i<d.length;i++){var x=d[i];if(!x||!x.id||!x.coverUrl)continue;if(x.nsfw&&!SHOW_NSFW)continue;
       out.push({id:x.id,slug:x.slug||"",title:x.title||"MakerWorld model",coverUrl:String(x.coverUrl).split("?")[0]});}
-    return out;
-  }
-  function tryProxy(i){
-    if(i>=PROXIES.length)return;
-    fetch(PROXIES[i](PROFILE)).then(function(r){if(!r.ok)throw 0;return r.text();}).then(function(t){
-      var models=parseModels(t);
-      if(models&&models.length){render(models);}else{tryProxy(i+1);}
-    }).catch(function(){tryProxy(i+1);});
-  }
-  render(FALLBACK);
-  tryProxy(0);
+    if(out.length)render(out);
+  }).catch(function(){});
 })();
 </script>
 </body>
