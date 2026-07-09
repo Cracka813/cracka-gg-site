@@ -76,7 +76,7 @@ section{padding:26px 0 70px;position:relative}
 
 /* ===== FOOTER ===== */
 .foot{border-top:1px solid var(--line);padding:46px 0 34px;text-align:center;background:rgba(6,6,12,.55);backdrop-filter:blur(8px)}
-.foot img{height:42px;margin-bottom:18px;filter:drop-shadow(0 0 10px rgba(180,0,255,.4))}
+.foot img{height:82px;margin:0 auto 18px;display:block;filter:drop-shadow(0 0 10px rgba(180,0,255,.4))}
 .foot-links{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:20px;font-size:13px;
   letter-spacing:1.5px;text-transform:uppercase;color:var(--mut)}
 .foot-links a:hover{color:var(--cyan)}
