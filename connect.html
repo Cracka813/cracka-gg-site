@@ -4,51 +4,46 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Connect — Cracka.gg</title>
-<meta name="description" content="Connect with DJ Cracka on YouTube, Twitch, Kick, TikTok, and Discord.">
+<meta name="description" content="Every DJ Cracka channel and link in one place — YouTube, Twitch, Kick, TikTok, Discord, MakerWorld, socials, store and more.">
 <link rel="icon" type="image/png" href="Cracka_FPV_Logo_Clear.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Chakra+Petch:wght@600;700&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-.yt-feature{background:linear-gradient(135deg,rgba(255,32,121,.16),rgba(180,0,255,.12));border:1px solid rgba(255,32,121,.4);
-  border-radius:18px;padding:30px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:24px;
-  backdrop-filter:blur(10px)}
-.yt-feature h3{font-size:25px;letter-spacing:1px;color:#fff}
-.yt-feature p{color:var(--mut);margin-top:5px}
 @property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
-.socials{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;max-width:780px;margin:0 auto}
+@property --bc{syntax:'<color>';inherits:true;initial-value:#00ff32}
+.socials{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;max-width:820px;margin:0 auto}
 .fbtn{position:relative;height:66px;border-radius:13px;background:#0a0a13;overflow:hidden;display:block;
-  border:2px solid rgba(0,255,50,.85);transition:transform .18s;
-  box-shadow:0 0 9px rgba(0,255,50,.45),0 0 20px rgba(0,255,50,.2),inset 0 0 14px rgba(0,255,50,.15);
-  animation:buzz 1.7s steps(14) infinite}
+  border:2px solid var(--bc);transition:transform .18s;
+  box-shadow:0 0 12px var(--bc),0 0 28px color-mix(in srgb,var(--bc) 42%,transparent),inset 0 0 16px color-mix(in srgb,var(--bc) 22%,transparent);
+  animation:edgecycle 13s linear infinite}
 .fbtn:hover{transform:translateY(-4px)}
-@keyframes buzz{0%,100%{box-shadow:0 0 9px rgba(0,255,50,.45),0 0 20px rgba(0,255,50,.2),inset 0 0 14px rgba(0,255,50,.15)}
-  45%{box-shadow:0 0 16px rgba(0,255,50,.9),0 0 34px rgba(0,255,50,.4),inset 0 0 18px rgba(0,255,50,.28)}
-  60%{box-shadow:0 0 7px rgba(0,255,50,.4),0 0 16px rgba(0,255,50,.18),inset 0 0 12px rgba(0,255,50,.12)}}
+@keyframes edgecycle{0%{--bc:#00ff32}25%{--bc:#b400ff}45%{--bc:#ff2079}65%{--bc:#ffe600}85%{--bc:#00ffff}100%{--bc:#00ff32}}
 .fbtn::before{content:"";position:absolute;inset:-2px;border-radius:15px;padding:2px;z-index:4;pointer-events:none;
-  background:conic-gradient(from var(--a),transparent 0 68%,#7dff9e 80%,#00ff32 86%,#eaffea 89%,#00ff32 92%,transparent 100%);
+  background:conic-gradient(from var(--a),transparent 0 68%,color-mix(in srgb,var(--bc) 50%,#fff) 80%,var(--bc) 88%,#fff 90%,var(--bc) 92%,transparent 100%);
   -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;
   mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;animation:spin 3.1s linear infinite}
 @keyframes spin{to{--a:360deg}}
 .fbtn .flame{position:absolute;left:0;right:0;bottom:-6px;height:140%;z-index:1;mix-blend-mode:screen;
   filter:url(#pflame) blur(4px) contrast(1.55) brightness(1.05);
   background:
-    radial-gradient(15% 62% at 14% 100%,rgba(205,70,255,.95),transparent 72%),
-    radial-gradient(14% 82% at 29% 100%,rgba(255,45,190,.92),transparent 75%),
-    radial-gradient(17% 94% at 45% 100%,rgba(150,0,255,.96),transparent 78%),
-    radial-gradient(14% 84% at 61% 100%,rgba(235,95,255,.9),transparent 75%),
-    radial-gradient(15% 66% at 78% 100%,rgba(165,0,255,.92),transparent 72%),
-    radial-gradient(32% 26% at 50% 100%,rgba(255,190,255,.85),transparent 70%);
+    radial-gradient(15% 62% at 14% 100%,rgba(180,0,255,.95),transparent 72%),
+    radial-gradient(14% 82% at 29% 100%,rgba(0,255,50,.9),transparent 75%),
+    radial-gradient(17% 94% at 45% 100%,rgba(180,0,255,.96),transparent 78%),
+    radial-gradient(14% 84% at 61% 100%,rgba(0,255,50,.9),transparent 75%),
+    radial-gradient(15% 66% at 78% 100%,rgba(180,0,255,.92),transparent 72%),
+    radial-gradient(30% 24% at 50% 100%,rgba(150,255,180,.82),transparent 70%);
   animation:rise 2.9s ease-in-out infinite}
 .fbtn .flame.f2{z-index:0;filter:url(#pflame) blur(10px) contrast(1.3);opacity:.5;animation:rise2 3.7s ease-in-out infinite}
 @keyframes rise{0%,100%{transform:translateY(5%) scaleY(1)}50%{transform:translateY(-3%) scaleY(1.13)}}
 @keyframes rise2{0%,100%{transform:translateY(3%) scaleY(1.05) scaleX(1.05)}50%{transform:translateY(-4%) scaleY(1.18) scaleX(.95)}}
 .fbtn .in{position:relative;z-index:5;display:flex;align-items:center;gap:12px;height:100%;padding:0 16px}
-.fbtn svg.ico{width:26px;height:26px;fill:#e6ffe9;flex:0 0 auto;filter:drop-shadow(0 0 6px rgba(0,255,50,.65))}
-.fbtn .kK{font-family:'Orbitron';font-weight:900;font-size:23px;color:#e6ffe9;width:26px;text-align:center;flex:0 0 auto;filter:drop-shadow(0 0 6px rgba(0,255,50,.65))}
-.fbtn .tx{display:flex;flex-direction:column;line-height:1.15}
-.fbtn .tx b{font-family:'Orbitron';font-weight:900;font-size:15px;letter-spacing:2px;color:#fff;text-shadow:0 0 8px rgba(0,255,50,.6)}
-.fbtn .tx small{font-family:'Share Tech Mono';font-size:11px;letter-spacing:1px;color:#9fe6b0}
+.fbtn svg.ico{width:26px;height:26px;fill:#eafff0;flex:0 0 auto;filter:drop-shadow(0 0 6px color-mix(in srgb,var(--bc) 70%,transparent))}
+.fbtn .kK{font-family:'Orbitron';font-weight:900;font-size:23px;color:#eafff0;width:26px;text-align:center;flex:0 0 auto;filter:drop-shadow(0 0 6px color-mix(in srgb,var(--bc) 70%,transparent))}
+.fbtn .tx{display:flex;flex-direction:column;line-height:1.15;min-width:0}
+.fbtn .tx b{font-family:'Orbitron';font-weight:900;font-size:15px;letter-spacing:2px;color:#fff;text-shadow:0 0 8px color-mix(in srgb,var(--bc) 60%,transparent)}
+.fbtn .tx small{font-family:'Share Tech Mono';font-size:11px;letter-spacing:1px;color:#c7d6cf;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.soon{opacity:.9}
 </style>
 </head>
 <body>
@@ -64,3 +59,51 @@
 <header class="nav"><div class="wrap nav-in">
   <a class="brand" href="index.html"><img src="Cracka_FPV_Logo_Clear.png" alt=""><span>CRACKA<span class="dot">.</span><span class="gg">GG</span></span></a>
   <button class="burger" id="burger" aria-label="Menu">☰</button>
+  <nav class="menu" id="menu">
+    <a href="index.html">Home</a>
+    <a href="suite.html">The Suite</a>
+    <a href="designs.html">Designs</a>
+    <a href="about.html">About</a>
+    <a href="content.html">Content</a>
+    <a href="connect.html" class="active">Connect</a>
+    <a href="prints.html">3D Print</a>
+  </nav>
+</div></header>
+
+<div class="page-head"><div class="wrap">
+  <div class="eyebrow">// Plug In</div>
+  <h1>Connect</h1>
+  <p>Every channel and link in one neon grid — green &amp; purple flame, randomized electric edges. Tap in.</p>
+</div></div>
+
+<section><div class="wrap">
+  <div class="socials">
+    <a class="fbtn" href="https://www.youtube.com/@crackafpv" target="_blank" rel="noopener"><div class="flame f2"></div><div class="flame"></div><div class="in"><svg class="ico" viewBox="0 0 24 24"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg><div class="tx"><b>YouTube</b><small>@crackafpv</small></div></div></a>
+    <a class="fbtn" href="https://www.twitch.tv/cracka_fpv" target="_blank" rel="noopener"><div class="flame f2"></div><div class="flame"></div><div class="in"><svg class="ico" viewBox="0 0 24 24"><path d="M11.57 4.71h1.72v5.14h-1.72zm4.72 0H18v5.14h-1.71zM6 0L1.71 4.29v15.42h5.15V24l4.28-4.29h3.43L22.29 12V0zm14.57 11.14l-3.43 3.43h-3.43l-3 3v-3H6.86V1.71h13.71z"/></svg><div class="tx"><b>Twitch</b><small>cracka_fpv</small></div></div></a>
+    <a class="fbtn" href="https://kick.com/cracka-fpv" target="_blank" rel="noopener"><div class="flame f2"></div><div class="flame"></div><div class="in"><span class="kK">K</span><div class="tx"><b>Kick</b><small>cracka-fpv</small></div></div></a>
+    <a class="fbtn soon" href="#"><div class="flame f2"></div><div class="flame"></div><div class="in"><svg class="ico" viewBox="0 0 24 24"><path d="M12.53.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg><div class="tx"><b>TikTok</b><small>Coming soon</small></div></div></a>
+    <a class="fbtn" href="https://discord.gg/czjAF47jgt" target="_blank" rel="noopener"><div class="flame f2"></div><div class="flame"></div><div class="in"><svg class="ico" viewBox="0 0 24 24"><path d="M20.32 4.37A19.79 19.79 0 0 0 15.43 2.86a.07.07 0 0 0-.08.04c-.21.38-.44.86-.61 1.25a18.27 18.27 0 0 0-5.49 0 12.6 12.6 0 0 0-.62-1.25.08.08 0 0 0-.08-.04A19.74 19.74 0 0 0 3.68 4.37a.07.07 0 0 0-.03.03C.53 9.05-.32 13.58.1 18.06a.08.08 0 0 0 .03.06 19.9 19.9 0 0 0 5.99 3.03.08.08 0 0 0 .09-.03c.46-.63.87-1.3 1.23-1.99a.08.08 0 0 0-.04-.11 13.1 13.1 0 0 1-1.87-.89.08.08 0 0 1-.01-.13l.37-.29a.07.07 0 0 1 .08-.01c3.93 1.79 8.18 1.79 12.06 0a.07.07 0 0 1 .08.01l.37.29a.08.08 0 0 1-.01.13 12.3 12.3 0 0 1-1.87.89.08.08 0 0 0-.04.11c.36.69.78 1.36 1.23 1.99a.08.08 0 0 0 .09.03 19.84 19.84 0 0 0 6-3.03.08.08 0 0 0 .03-.06c.5-5.18-.84-9.67-3.55-13.66a.06.06 0 0 0-.03-.03zM8.02 15.33c-1.18 0-2.16-1.08-2.16-2.42s.96-2.42 2.16-2.42c1.21 0 2.18 1.1 2.16 2.42 0 1.34-.96 2.42-2.16 2.42zm7.97 0c-1.18 0-2.16-1.08-2.16-2.42s.96-2.42 2.16-2.42c1.21 0 2.18 1.1 2.16 2.42 0 1.34-.95 2.42-2.16 2.42z"/></svg><div class="tx"><b>Discord</b><small>The Insane Asylum</small></div></div></a>
+    <a class="fbtn soon" href="#"><div class="flame f2"></div><div class="flame"></div><div class="in"><svg class="ico" viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.43-.36-1.06-.41-2.23C4.17 15.58 4.16 15.2 4.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38C1.35 2.68.93 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13.67.66 1.34 1.08 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.13-1.38.66-.67 1.08-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.72-1.46-1.38-2.13-.67-.66-1.34-1.08-2.13-1.38-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4zm6.4-10.4a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44z"/></svg><div class="tx"><b>Instagram</b><small>Coming soon</small></div></div></a>
+    <a class="fbtn soon" href="#"><div class="flame f2"></div><div class="flame"></div><div class="in"><svg class="ico" viewBox="0 0 24 24"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.4l-5.8-7.58-6.64 7.58H.48l8.6-9.83L0 1.15h7.59l5.24 6.93zM17.6 20.64h2.04L6.49 3.24H4.3z"/></svg><div class="tx"><b>X</b><small>Coming soon</small></div></div></a>
+    <a class="fbtn soon" href="#"><div class="flame f2"></div><div class="flame"></div><div class="in"><svg class="ico" viewBox="0 0 24 24"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.68 4.53-4.68 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.24h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg><div class="tx"><b>Facebook</b><small>Coming soon</small></div></div></a>
+    <a class="fbtn" href="https://cracka.gg" target="_blank" rel="noopener"><div class="flame f2"></div><div class="flame"></div><div class="in"><svg class="ico" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg><div class="tx"><b>Website</b><small>cracka.gg</small></div></div></a>
+    <a class="fbtn" href="https://makerworld.com/en/@CrackaFPV" target="_blank" rel="noopener"><div class="flame f2"></div><div class="flame"></div><div class="in"><svg class="ico" viewBox="0 0 24 24"><path d="M12 2 3 7v10l9 5 9-5V7l-9-5zm0 2.31L18.5 8 12 11.69 5.5 8 12 4.31zM5 9.19l6 3.46v6.92l-6-3.35V9.19zm14 0v7.03l-6 3.35v-6.92l6-3.46z"/></svg><div class="tx"><b>MakerWorld</b><small>@CrackaFPV</small></div></div></a>
+    <a class="fbtn soon" href="#"><div class="flame f2"></div><div class="flame"></div><div class="in"><svg class="ico" viewBox="0 0 24 24"><path d="M18 6h-2c0-2.21-1.79-4-4-4S8 3.79 8 6H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6-2c1.1 0 2 .9 2 2h-4c0-1.1.9-2 2-2zm6 16H6V8h2v2c0 .55.45 1 1 1s1-.45 1-1V8h4v2c0 .55.45 1 1 1s1-.45 1-1V8h2v12z"/></svg><div class="tx"><b>Store</b><small>Merch &amp; gear</small></div></div></a>
+    <a class="fbtn soon" href="#"><div class="flame f2"></div><div class="flame"></div><div class="in"><svg class="ico" viewBox="0 0 24 24"><path d="M14.82 2.41c3.96 0 7.18 3.24 7.18 7.21 0 3.96-3.22 7.17-7.18 7.17-3.97 0-7.21-3.21-7.21-7.17 0-3.97 3.24-7.21 7.21-7.21M2 21.6h3.5V2.41H2z"/></svg><div class="tx"><b>Patreon</b><small>Support the build</small></div></div></a>
+    <a class="fbtn soon" href="#"><div class="flame f2"></div><div class="flame"></div><div class="in"><svg class="ico" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg><div class="tx"><b>Tip / Donate</b><small>Coming soon</small></div></div></a>
+  </div>
+</div></section>
+
+<footer class="foot"><div class="wrap">
+  <img src="Cracka_Wordmark_GreenPurple.png" alt="DJ Cracka">
+  <div class="foot-links"><a href="suite.html">The Suite</a><a href="designs.html">Designs</a><a href="about.html">About</a><a href="content.html">Content</a><a href="connect.html">Connect</a><a href="prints.html">3D Print</a></div>
+  <div class="midnight">Cyberpunk Vibe — <b>4</b><i>:</i><b>20</b> Midnight Edition</div>
+  <div class="copy">© 2026 DJ Cracka Software Suite · cracka.gg · all rights reserved</div>
+</div></footer>
+<script>
+var b=document.getElementById('burger'),m=document.getElementById('menu');b.addEventListener('click',function(){m.classList.toggle('open')});
+document.querySelectorAll('.fbtn').forEach(function(el){el.style.animationDelay=(-(Math.random()*13)).toFixed(2)+'s';});
+document.querySelectorAll('.fbtn.soon').forEach(function(el){el.addEventListener('click',function(e){e.preventDefault();});});
+</script>
+</body>
+</html>

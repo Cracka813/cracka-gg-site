@@ -10,7 +10,7 @@ html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--txt);font-family:'Rajdhani',sans-serif;min-height:100vh;overflow-x:hidden;position:relative}
 /* fixed atmospheric background: banner + dark wash + neon grid */
 body::before{content:"";position:fixed;inset:0;z-index:-2;
-  background:url('banner.png') center top/cover no-repeat fixed;opacity:.16}
+  background:url('banner.png') center center/cover no-repeat fixed;opacity:.16}
 body::after{content:"";position:fixed;inset:0;z-index:-1;
   background:
     radial-gradient(1200px 600px at 70% -10%,rgba(180,0,255,.18),transparent 60%),
