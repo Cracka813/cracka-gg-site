@@ -1,0 +1,29 @@
+name: Sync MakerWorld models
+on:
+  schedule:
+    - cron: '0 1,13 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm init -y && npm i playwright@1.48.0
+      - run: npx playwright install --with-deps chromium
+      - run: node sync-makerworld.mjs
+      - name: Commit changes
+        run: |
+          if [ -n "$(git status --porcelain models.json)" ]; then
+            git config user.name "makerworld-bot"
+            git config user.email "actions@users.noreply.github.com"
+            git add models.json
+            git commit -m "Auto-sync MakerWorld models"
+            git push
+          else
+            echo "No changes to commit"
+          fi
