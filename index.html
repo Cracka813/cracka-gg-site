@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cracka.gg — DJ Cracka Software Suite</title>
+<meta name="description" content="The official home of the DJ Cracka Software Suite — pro tools for DJs and streamers, custom designs, and content by Cracka FPV.">
+<meta property="og:title" content="Cracka.gg — DJ Cracka Software Suite">
+<meta property="og:description" content="Pro tools for DJs & streamers, designs, and content — built by Cracka.">
+<meta property="og:image" content="Cracka_FPV_Logo_Clear.png">
+<link rel="icon" type="image/png" href="Cracka_FPV_Logo_Clear.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Chakra+Petch:wght@600;700&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.hero{padding:86px 0 60px;text-align:center}
+.hero-logo{height:118px;margin-bottom:10px;filter:drop-shadow(0 0 22px rgba(0,255,255,.4))}
+.hero .name{font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:clamp(48px,10vw,130px);letter-spacing:8px;
+  text-transform:uppercase;line-height:1;margin:8px 0 6px;
+  background:linear-gradient(100deg,#00ff32,#00ffff 26%,#b400ff 60%,#ff2079);background-size:220% auto;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+  filter:drop-shadow(0 0 22px rgba(180,0,255,.5)) drop-shadow(0 0 34px rgba(0,255,50,.25));animation:flow 7s ease-in-out infinite}
+.hero .sub-tag{font-family:'Share Tech Mono';color:var(--cyan);letter-spacing:4px;text-transform:uppercase;font-size:clamp(13px,2vw,19px)}
+.hero p.lead{max-width:660px;margin:20px auto 0;color:var(--mut);font-size:19px;line-height:1.6}
+.hero-btns{display:flex;gap:16px;justify-content:center;margin-top:34px;flex-wrap:wrap}
+.portals{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+.portal{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line);min-height:210px;display:flex;
+  flex-direction:column;justify-content:flex-end;padding:24px;background:var(--glass);backdrop-filter:blur(10px);transition:.28s}
+.portal:hover{transform:translateY(-6px);border-color:var(--pc);box-shadow:0 18px 46px -14px var(--pc)}
+.portal .pico{position:absolute;top:20px;right:22px;font-size:30px;color:var(--pc);font-family:'Orbitron';opacity:.9}
+.portal h3{font-size:22px;letter-spacing:1px;color:#fff}
+.portal p{color:var(--mut);font-size:14px;margin-top:5px;line-height:1.5}
+.portal .arrow{color:var(--pc);font-family:'Share Tech Mono';margin-top:12px;font-size:13px;letter-spacing:2px}
+</style>
+</head>
+<body>
+
+<header class="nav"><div class="wrap nav-in">
+  <a class="brand" href="index.html"><img src="Cracka_FPV_Logo_Clear.png" alt=""><span>CRACKA<span class="dot">.</span><span class="gg">GG</span></span></a>
+  <button class="burger" id="burger" aria-label="Menu">☰</button>
+  <nav class="menu" id="menu">
+    <a href="index.html" class="active">Home</a>
+    <a href="suite.html">The Suite</a>
+    <a href="designs.html">Designs</a>
+    <a href="about.html">About</a>
+    <a href="content.html">Content</a>
+    <a href="connect.html">Connect</a>
+    <a class="yt" href="connect.html">▶ YouTube</a>
+  </nav>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <img class="hero-logo" src="Cracka_FPV_Logo_Clear.png" alt="DJ Cracka">
+  <div class="name">DJ&nbsp;CRACKA</div>
+  <div class="sub-tag">// Software Suite · Designs · Content</div>
+  <p class="lead">Pro-grade tools for DJs &amp; streamers, custom designs, and content — all under one neon roof. Built by Cracka, wrapped in a cyberpunk terminal you'll actually want to open.</p>
+  <div class="hero-btns">
+    <a class="btn btn-p" href="suite.html">Explore the Suite</a>
+    <a class="btn btn-o" href="connect.html">▶ Watch on YouTube</a>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="portals">
+    <a class="portal" href="suite.html" style="--pc:var(--green)"><span class="pico">◈</span><h3>The Suite</h3><p>Seven pro tools for DJs and streamers.</p><span class="arrow">ENTER →</span></a>
+    <a class="portal" href="designs.html" style="--pc:var(--purple)"><span class="pico">◆</span><h3>Designs</h3><p>3D prints, models, graphics, and props.</p><span class="arrow">ENTER →</span></a>
+    <a class="portal" href="content.html" style="--pc:var(--pink)"><span class="pico">▶</span><h3>Content</h3><p>Streams, tutorials, and featured videos.</p><span class="arrow">ENTER →</span></a>
+    <a class="portal" href="connect.html" style="--pc:var(--cyan)"><span class="pico">◇</span><h3>Connect</h3><p>YouTube, Twitch, Kick, TikTok, Discord.</p><span class="arrow">ENTER →</span></a>
+  </div>
+</div></section>
+
+<footer class="foot"><div class="wrap">
+  <img src="Cracka_Wordmark_GreenPurple.png" alt="DJ Cracka">
+  <div class="foot-links"><a href="suite.html">The Suite</a><a href="designs.html">Designs</a><a href="about.html">About</a><a href="content.html">Content</a><a href="connect.html">Connect</a></div>
+  <div class="midnight">Cyberpunk Vibe — <b>4</b><i>:</i><b>20</b> Midnight Edition</div>
+  <div class="copy">© 2026 DJ Cracka Software Suite · cracka.gg · all rights reserved</div>
+</div></footer>
+<script>var b=document.getElementById('burger'),m=document.getElementById('menu');b.addEventListener('click',function(){m.classList.toggle('open')});</script>
+</body>
+</html>
