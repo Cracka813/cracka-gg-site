@@ -18,10 +18,10 @@
 .socials{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px}
 .soc{background:var(--glass);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:14px;padding:20px;text-align:center;transition:.22s;display:block}
 .soc:hover{transform:translateY(-5px);border-color:var(--sc);box-shadow:0 16px 40px -14px var(--sc)}
-.soc .thumb{aspect-ratio:1/1;border:2px dashed var(--sc);border-radius:12px;display:flex;flex-direction:column;align-items:center;
-  justify-content:center;color:var(--sc);margin-bottom:14px;background:rgba(255,255,255,.02)}
-.soc .thumb i{font-size:38px;font-style:normal}
-.soc .thumb small{font-family:'Share Tech Mono';font-size:11px;letter-spacing:1px;margin-top:6px;opacity:.85}
+.soc .thumb{aspect-ratio:1/1;border:1px solid var(--sc);border-radius:12px;overflow:hidden;margin-bottom:14px;background:#000;
+  display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 30px -8px var(--sc)}
+.soc .thumb video{width:100%;height:100%;object-fit:cover;display:block}
+.soc:hover .thumb{box-shadow:inset 0 0 30px -8px var(--sc),0 0 22px -4px var(--sc)}
 .soc h4{font-family:'Orbitron';font-size:16px;letter-spacing:1px;color:#fff}
 .soc span{color:var(--mut);font-size:13px;font-family:'Share Tech Mono'}
 </style>
@@ -45,7 +45,7 @@
 <div class="page-head"><div class="wrap">
   <div class="eyebrow">// Plug In</div>
   <h1>Connect</h1>
-  <p>Catch the streams, grab the tools, and hang in the Discord. Drop your custom mini-thumbnails on each tile.</p>
+  <p>Catch the streams, grab the tools, and hang in the Discord. Live neon, always looping.</p>
 </div></div>
 
 <section><div class="wrap">
@@ -54,10 +54,10 @@
     <a class="btn btn-p" href="https://www.youtube.com/@crackafpv" target="_blank" rel="noopener" style="white-space:nowrap">Visit Channel</a>
   </div>
   <div class="socials">
-    <a class="soc" href="https://www.twitch.tv/cracka_fpv" target="_blank" rel="noopener" style="--sc:var(--purple)"><div class="thumb"><i>◢◤</i><small>DROP THUMB</small></div><h4>Twitch</h4><span>cracka_fpv</span></a>
-    <a class="soc" href="https://kick.com/cracka-fpv" target="_blank" rel="noopener" style="--sc:var(--green)"><div class="thumb"><i>◢◤</i><small>DROP THUMB</small></div><h4>Kick</h4><span>cracka-fpv</span></a>
-    <a class="soc" href="https://www.twitch.tv/cracka_fpv" target="_blank" rel="noopener" style="--sc:var(--pink)"><div class="thumb"><i>◢◤</i><small>DROP THUMB</small></div><h4>TikTok</h4><span>@crackafpv</span></a>
-    <a class="soc" href="https://discord.gg/czjAF47jgt" target="_blank" rel="noopener" style="--sc:var(--cyan)"><div class="thumb"><i>◢◤</i><small>DROP THUMB</small></div><h4>Discord</h4><span>Join the server</span></a>
+    <a class="soc" href="https://www.twitch.tv/cracka_fpv" target="_blank" rel="noopener" style="--sc:var(--purple)"><div class="thumb"><video src="n1.mp4" autoplay loop muted playsinline preload="auto"></video></div><h4>Twitch</h4><span>cracka_fpv</span></a>
+    <a class="soc" href="https://kick.com/cracka-fpv" target="_blank" rel="noopener" style="--sc:var(--green)"><div class="thumb"><video src="n2.mp4" autoplay loop muted playsinline preload="auto"></video></div><h4>Kick</h4><span>cracka-fpv</span></a>
+    <a class="soc" href="https://www.twitch.tv/cracka_fpv" target="_blank" rel="noopener" style="--sc:var(--pink)"><div class="thumb"><video src="n4.mp4" autoplay loop muted playsinline preload="auto"></video></div><h4>TikTok</h4><span>@crackafpv</span></a>
+    <a class="soc" href="https://discord.gg/czjAF47jgt" target="_blank" rel="noopener" style="--sc:var(--cyan)"><div class="thumb"><video src="asylum.mp4" autoplay loop muted playsinline preload="auto"></video></div><h4>Discord</h4><span>The Insane Asylum</span></a>
   </div>
 </div></section>
 
