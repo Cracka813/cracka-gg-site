@@ -15,58 +15,52 @@
   backdrop-filter:blur(10px)}
 .yt-feature h3{font-size:25px;letter-spacing:1px;color:#fff}
 .yt-feature p{color:var(--mut);margin-top:5px}
-.socials{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px}
-.soc{background:var(--glass);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:14px;padding:20px;text-align:center;transition:.22s;display:block}
-.soc:hover{transform:translateY(-5px);border-color:var(--sc);box-shadow:0 16px 40px -14px var(--sc)}
-.soc .thumb{aspect-ratio:1/1;border:1px solid var(--sc);border-radius:12px;overflow:hidden;margin-bottom:14px;background:#000;
-  display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 30px -8px var(--sc)}
-.soc .thumb video{width:100%;height:100%;object-fit:cover;display:block}
-.soc:hover .thumb{box-shadow:inset 0 0 30px -8px var(--sc),0 0 22px -4px var(--sc)}
-.soc h4{font-family:'Orbitron';font-size:16px;letter-spacing:1px;color:#fff}
-.soc span{color:var(--mut);font-size:13px;font-family:'Share Tech Mono'}
+@property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
+.socials{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;max-width:780px;margin:0 auto}
+.fbtn{position:relative;height:66px;border-radius:13px;background:#0a0a13;overflow:hidden;display:block;
+  border:2px solid rgba(0,255,50,.85);transition:transform .18s;
+  box-shadow:0 0 9px rgba(0,255,50,.45),0 0 20px rgba(0,255,50,.2),inset 0 0 14px rgba(0,255,50,.15);
+  animation:buzz 1.7s steps(14) infinite}
+.fbtn:hover{transform:translateY(-4px)}
+@keyframes buzz{0%,100%{box-shadow:0 0 9px rgba(0,255,50,.45),0 0 20px rgba(0,255,50,.2),inset 0 0 14px rgba(0,255,50,.15)}
+  45%{box-shadow:0 0 16px rgba(0,255,50,.9),0 0 34px rgba(0,255,50,.4),inset 0 0 18px rgba(0,255,50,.28)}
+  60%{box-shadow:0 0 7px rgba(0,255,50,.4),0 0 16px rgba(0,255,50,.18),inset 0 0 12px rgba(0,255,50,.12)}}
+.fbtn::before{content:"";position:absolute;inset:-2px;border-radius:15px;padding:2px;z-index:4;pointer-events:none;
+  background:conic-gradient(from var(--a),transparent 0 68%,#7dff9e 80%,#00ff32 86%,#eaffea 89%,#00ff32 92%,transparent 100%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;animation:spin 3.1s linear infinite}
+@keyframes spin{to{--a:360deg}}
+.fbtn .flame{position:absolute;left:0;right:0;bottom:-6px;height:140%;z-index:1;mix-blend-mode:screen;
+  filter:url(#pflame) blur(4px) contrast(1.55) brightness(1.05);
+  background:
+    radial-gradient(15% 62% at 14% 100%,rgba(205,70,255,.95),transparent 72%),
+    radial-gradient(14% 82% at 29% 100%,rgba(255,45,190,.92),transparent 75%),
+    radial-gradient(17% 94% at 45% 100%,rgba(150,0,255,.96),transparent 78%),
+    radial-gradient(14% 84% at 61% 100%,rgba(235,95,255,.9),transparent 75%),
+    radial-gradient(15% 66% at 78% 100%,rgba(165,0,255,.92),transparent 72%),
+    radial-gradient(32% 26% at 50% 100%,rgba(255,190,255,.85),transparent 70%);
+  animation:rise 2.9s ease-in-out infinite}
+.fbtn .flame.f2{z-index:0;filter:url(#pflame) blur(10px) contrast(1.3);opacity:.5;animation:rise2 3.7s ease-in-out infinite}
+@keyframes rise{0%,100%{transform:translateY(5%) scaleY(1)}50%{transform:translateY(-3%) scaleY(1.13)}}
+@keyframes rise2{0%,100%{transform:translateY(3%) scaleY(1.05) scaleX(1.05)}50%{transform:translateY(-4%) scaleY(1.18) scaleX(.95)}}
+.fbtn .in{position:relative;z-index:5;display:flex;align-items:center;gap:12px;height:100%;padding:0 16px}
+.fbtn svg.ico{width:26px;height:26px;fill:#e6ffe9;flex:0 0 auto;filter:drop-shadow(0 0 6px rgba(0,255,50,.65))}
+.fbtn .kK{font-family:'Orbitron';font-weight:900;font-size:23px;color:#e6ffe9;width:26px;text-align:center;flex:0 0 auto;filter:drop-shadow(0 0 6px rgba(0,255,50,.65))}
+.fbtn .tx{display:flex;flex-direction:column;line-height:1.15}
+.fbtn .tx b{font-family:'Orbitron';font-weight:900;font-size:15px;letter-spacing:2px;color:#fff;text-shadow:0 0 8px rgba(0,255,50,.6)}
+.fbtn .tx small{font-family:'Share Tech Mono';font-size:11px;letter-spacing:1px;color:#9fe6b0}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <filter id="pflame" x="-25%" y="-25%" width="150%" height="150%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.02 0.03" numOctaves="2" seed="4" result="n">
+      <animate attributeName="baseFrequency" dur="5s" values="0.02 0.03;0.025 0.052;0.02 0.03" repeatCount="indefinite"/>
+    </feTurbulence>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="24" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</defs></svg>
 
 <header class="nav"><div class="wrap nav-in">
   <a class="brand" href="index.html"><img src="Cracka_FPV_Logo_Clear.png" alt=""><span>CRACKA<span class="dot">.</span><span class="gg">GG</span></span></a>
   <button class="burger" id="burger" aria-label="Menu">☰</button>
-  <nav class="menu" id="menu">
-    <a href="index.html">Home</a>
-    <a href="suite.html">The Suite</a>
-    <a href="designs.html">Designs</a>
-    <a href="about.html">About</a>
-    <a href="content.html">Content</a>
-    <a href="connect.html" class="active">Connect</a>
-    <a class="yt" href="https://www.youtube.com/@crackafpv" target="_blank" rel="noopener">▶ YouTube</a>
-  </nav>
-</div></header>
-
-<div class="page-head"><div class="wrap">
-  <div class="eyebrow">// Plug In</div>
-  <h1>Connect</h1>
-  <p>Catch the streams, grab the tools, and hang in the Discord. Live neon, always looping.</p>
-</div></div>
-
-<section><div class="wrap">
-  <div class="yt-feature">
-    <div><h3>▶ DJ Cracka on YouTube</h3><p>Tutorials, tool walkthroughs, FPV, and sets — subscribe for the latest drops.</p></div>
-    <a class="btn btn-p" href="https://www.youtube.com/@crackafpv" target="_blank" rel="noopener" style="white-space:nowrap">Visit Channel</a>
-  </div>
-  <div class="socials">
-    <a class="soc" href="https://www.twitch.tv/cracka_fpv" target="_blank" rel="noopener" style="--sc:var(--purple)"><div class="thumb"><video src="n1.mp4" autoplay loop muted playsinline preload="auto"></video></div><h4>Twitch</h4><span>cracka_fpv</span></a>
-    <a class="soc" href="https://kick.com/cracka-fpv" target="_blank" rel="noopener" style="--sc:var(--green)"><div class="thumb"><video src="n2.mp4" autoplay loop muted playsinline preload="auto"></video></div><h4>Kick</h4><span>cracka-fpv</span></a>
-    <a class="soc" href="https://www.twitch.tv/cracka_fpv" target="_blank" rel="noopener" style="--sc:var(--pink)"><div class="thumb"><video src="n4.mp4" autoplay loop muted playsinline preload="auto"></video></div><h4>TikTok</h4><span>@crackafpv</span></a>
-    <a class="soc" href="https://discord.gg/czjAF47jgt" target="_blank" rel="noopener" style="--sc:var(--cyan)"><div class="thumb"><video src="asylum.mp4" autoplay loop muted playsinline preload="auto"></video></div><h4>Discord</h4><span>The Insane Asylum</span></a>
-  </div>
-</div></section>
-
-<footer class="foot"><div class="wrap">
-  <img src="Cracka_Wordmark_GreenPurple.png" alt="DJ Cracka">
-  <div class="foot-links"><a href="suite.html">The Suite</a><a href="designs.html">Designs</a><a href="about.html">About</a><a href="content.html">Content</a><a href="connect.html">Connect</a></div>
-  <div class="midnight">Cyberpunk Vibe — <b>4</b><i>:</i><b>20</b> Midnight Edition</div>
-  <div class="copy">© 2026 DJ Cracka Software Suite · cracka.gg · all rights reserved</div>
-</div></footer>
-<script>var b=document.getElementById('burger'),m=document.getElementById('menu');b.addEventListener('click',function(){m.classList.toggle('open')});</script>
-</body>
-</html>
