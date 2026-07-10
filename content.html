@@ -50,13 +50,13 @@
     <img class="mh" src="Cracka_FPV_MadHatter_Transparent.png" alt="">
     <small>// LOADING FEATURED VIDEO…</small>
   </div>
-  <div class="feat-cap" id="featCap">▶ Random pick from <b>@crackafpv</b> — reload for another</div>
+  <div class="feat-cap" id="featCap">&#9654; Random pick from <b>@crackafpv</b> — reload for another</div>
   <div class="grid" id="moreGrid"></div>
 </div></section>
 
 <footer class="foot"><div class="wrap">
   <img src="Cracka_Wordmark_GreenPurple.png" alt="DJ Cracka">
-  <div class="foot-links"><a href="suite.html">The Suite</a><a href="designs.html">Designs</a><a href="about.html">About</a><a href="content.html">Content</a><a href="connect.html">Connect</a></div>
+  <div class="foot-links"><a href="suite.html">The Suite</a><a href="designs.html">Designs</a><a href="about.html">About</a><a href="content.html">Content</a><a href="connect.html">Connect</a><a href="prints.html">3D Print</a></div>
   <div class="midnight">Cyberpunk Vibe — <b>4</b><i>:</i><b>20</b> Midnight Edition</div>
   <div class="copy">© 2026 DJ Cracka Software Suite · cracka.gg · all rights reserved</div>
 </div></footer>
@@ -78,23 +78,30 @@
     for(var i=1;i<list.length&&i<=4;i++){
       var v=list[i];
       html+='<a class="card vidcard" href="https://www.youtube.com/watch?v='+v[0]+'" target="_blank" rel="noopener" style="--ac:'+AC[i%AC.length]+'">'
-        +'<div class="card-media"><img loading="lazy" src="https://i.ytimg.com/vi/'+v[0]+'/hqdefault.jpg" alt=""><div class="veil"></div><span class="badge">▶ Watch</span></div>'
+        +'<div class="card-media"><img loading="lazy" src="https://i.ytimg.com/vi/'+v[0]+'/hqdefault.jpg" alt=""><div class="veil"></div><span class="badge">&#9654; Watch</span></div>'
         +'<div class="card-body"><h3>'+esc(v[1])+'</h3><p>Cracka FPV · YouTube</p></div></a>';
     }
     grid.innerHTML=html;
   }
-  var url="https://api.allorigins.win/raw?url="+encodeURIComponent("https://www.youtube.com/feeds/videos.xml?channel_id="+CH);
-  fetch(url).then(function(r){if(!r.ok)throw 0;return r.text();}).then(function(x){
-    var ids=x.match(/<yt:videoId>([^<]+)<\/yt:videoId>/g)||[];
-    var tits=x.match(/<media:title>([\s\S]*?)<\/media:title>/g)||[];
-    var list=[];
-    for(var i=0;i<ids.length;i++){
-      var id=ids[i].replace(/<\/?yt:videoId>/g,'');
-      var t=tits[i]?tits[i].replace(/<\/?media:title>/g,'').replace(/&amp;/g,'&').replace(/&quot;/g,'"').replace(/&#39;/g,"'").replace(/&lt;/g,'<').replace(/&gt;/g,'>'):'Cracka FPV';
-      if(id) list.push([id,t]);
-    }
-    render(list.length?list:FB);
-  }).catch(function(){render(FB);});
+  // 1) Render the built-in list immediately so the box is NEVER stuck on "loading".
+  render(FB);
+  // 2) Try to upgrade to the live feed, but bail out fast if the proxy is slow/down.
+  try{
+    var ctrl=new AbortController();
+    var to=setTimeout(function(){ctrl.abort();},6000);
+    var url="https://api.allorigins.win/raw?url="+encodeURIComponent("https://www.youtube.com/feeds/videos.xml?channel_id="+CH);
+    fetch(url,{signal:ctrl.signal}).then(function(r){clearTimeout(to);if(!r.ok)throw 0;return r.text();}).then(function(x){
+      var ids=x.match(/<yt:videoId>([^<]+)<\/yt:videoId>/g)||[];
+      var tits=x.match(/<media:title>([\s\S]*?)<\/media:title>/g)||[];
+      var list=[];
+      for(var i=0;i<ids.length;i++){
+        var id=ids[i].replace(/<\/?yt:videoId>/g,'');
+        var t=tits[i]?tits[i].replace(/<\/?media:title>/g,'').replace(/&amp;/g,'&').replace(/&quot;/g,'"').replace(/&#39;/g,"'").replace(/&lt;/g,'<').replace(/&gt;/g,'>'):'Cracka FPV';
+        if(id) list.push([id,t]);
+      }
+      if(list.length) render(list);   // upgrade to the latest uploads
+    }).catch(function(){/* keep the built-in list */});
+  }catch(e){}
 })();
 </script>
 </body>
