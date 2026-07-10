@@ -15,16 +15,28 @@
 .yt-feature h3{font-size:25px;letter-spacing:1px;color:#fff}
 .yt-feature p{color:var(--mut);margin-top:5px}
 @property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
-@property --bc{syntax:'<color>';inherits:true;initial-value:#00ff32}
 .socials{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;max-width:820px;margin:0 auto}
 .fbtn{position:relative;height:66px;border-radius:13px;background:#0a0a13;overflow:hidden;display:block;
-  border:2px solid var(--bc);transition:transform .18s;
-  box-shadow:0 0 12px var(--bc),0 0 28px color-mix(in srgb,var(--bc) 42%,transparent),inset 0 0 16px color-mix(in srgb,var(--bc) 22%,transparent);
-  animation:edgecycle 13s linear infinite}
+  border:2px solid #00ff32;transition:transform .18s;
+  box-shadow:0 0 12px #00ff32,0 0 28px rgba(0,255,50,.42),inset 0 0 16px rgba(0,255,50,.22);
+  animation:edgecycle 12s linear infinite}
 .fbtn:hover{transform:translateY(-4px)}
-@keyframes edgecycle{0%{--bc:#00ff32}25%{--bc:#b400ff}45%{--bc:#ff2079}65%{--bc:#ffe600}85%{--bc:#00ffff}100%{--bc:#00ff32}}
+@keyframes edgecycle{
+  0%{border-color:#00ff32;box-shadow:0 0 12px #00ff32,0 0 28px rgba(0,255,50,.42),inset 0 0 16px rgba(0,255,50,.22)}
+  20%{border-color:#b400ff;box-shadow:0 0 12px #b400ff,0 0 28px rgba(180,0,255,.42),inset 0 0 16px rgba(180,0,255,.22)}
+  40%{border-color:#ff2079;box-shadow:0 0 12px #ff2079,0 0 28px rgba(255,32,121,.42),inset 0 0 16px rgba(255,32,121,.22)}
+  60%{border-color:#ffe600;box-shadow:0 0 12px #ffe600,0 0 28px rgba(255,230,0,.42),inset 0 0 16px rgba(255,230,0,.22)}
+  80%{border-color:#00ffff;box-shadow:0 0 12px #00ffff,0 0 28px rgba(0,255,255,.42),inset 0 0 16px rgba(0,255,255,.22)}
+  100%{border-color:#00ff32;box-shadow:0 0 12px #00ff32,0 0 28px rgba(0,255,50,.42),inset 0 0 16px rgba(0,255,50,.22)}
+}
+.fbtn:nth-child(1){animation-delay:0s}
+.fbtn:nth-child(2){animation-delay:-2s}
+.fbtn:nth-child(3){animation-delay:-4s}
+.fbtn:nth-child(4){animation-delay:-6s}
+.fbtn:nth-child(5){animation-delay:-8s}
+.fbtn:nth-child(6){animation-delay:-10s}
 .fbtn::before{content:"";position:absolute;inset:-2px;border-radius:15px;padding:2px;z-index:4;pointer-events:none;
-  background:conic-gradient(from var(--a),transparent 0 68%,color-mix(in srgb,var(--bc) 50%,#fff) 80%,var(--bc) 88%,#fff 90%,var(--bc) 92%,transparent 100%);
+  background:conic-gradient(from var(--a),transparent 0 70%,rgba(255,255,255,.85) 82%,#fff 88%,rgba(255,255,255,.85) 92%,transparent 100%);
   -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;
   mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;animation:spin 3.1s linear infinite}
 @keyframes spin{to{--a:360deg}}
@@ -42,10 +54,10 @@
 @keyframes rise{0%,100%{transform:translateY(5%) scaleY(1)}50%{transform:translateY(-3%) scaleY(1.13)}}
 @keyframes rise2{0%,100%{transform:translateY(3%) scaleY(1.05) scaleX(1.05)}50%{transform:translateY(-4%) scaleY(1.18) scaleX(.95)}}
 .fbtn .in{position:relative;z-index:5;display:flex;align-items:center;gap:12px;height:100%;padding:0 16px}
-.fbtn svg.ico{width:26px;height:26px;fill:#eafff0;flex:0 0 auto;filter:drop-shadow(0 0 6px color-mix(in srgb,var(--bc) 70%,transparent))}
-.fbtn .kK{font-family:'Orbitron';font-weight:900;font-size:22px;color:#eafff0;width:26px;text-align:center;flex:0 0 auto;filter:drop-shadow(0 0 6px color-mix(in srgb,var(--bc) 70%,transparent))}
+.fbtn svg.ico{width:26px;height:26px;fill:#eafff0;flex:0 0 auto;filter:drop-shadow(0 0 6px rgba(200,255,215,.7))}
+.fbtn .kK{font-family:'Orbitron';font-weight:900;font-size:22px;color:#eafff0;width:26px;text-align:center;flex:0 0 auto;filter:drop-shadow(0 0 6px rgba(200,255,215,.7))}
 .fbtn .tx{display:flex;flex-direction:column;line-height:1.15;min-width:0}
-.fbtn .tx b{font-family:'Orbitron';font-weight:900;font-size:15px;letter-spacing:2px;color:#fff;text-shadow:0 0 8px color-mix(in srgb,var(--bc) 60%,transparent)}
+.fbtn .tx b{font-family:'Orbitron';font-weight:900;font-size:15px;letter-spacing:2px;color:#fff;text-shadow:0 0 8px rgba(200,255,215,.55)}
 .fbtn .tx small{font-family:'Share Tech Mono';font-size:11px;letter-spacing:1px;color:#c7d6cf;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 </style>
 </head>
