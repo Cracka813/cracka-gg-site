@@ -21,6 +21,12 @@
 .feat-cap b{color:var(--pink)}
 .vidcard{display:block}
 .vidcard .card-body h3{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:16px;min-height:2.5em;margin-bottom:6px}
+.live-pill{position:absolute;top:14px;left:14px;z-index:3;background:#ff2079;color:#fff;font-family:'Share Tech Mono';
+  font-size:12px;letter-spacing:1px;padding:4px 11px;border-radius:20px;box-shadow:0 0 16px rgba(255,32,121,.75);animation:livepulse 1.2s ease-in-out infinite}
+@keyframes livepulse{0%,100%{opacity:1}50%{opacity:.55}}
+.twitch-btn{display:block;text-align:center;margin:0 0 14px;padding:15px;border-radius:14px;font-family:'Chakra Petch',sans-serif;font-weight:700;
+  letter-spacing:1px;text-decoration:none;color:#fff;background:#9146FF;box-shadow:0 0 22px rgba(145,70,255,.6);transition:all .18s ease}
+.twitch-btn:hover{background:#a970ff;box-shadow:0 0 30px rgba(145,70,255,.95)}
 </style>
 </head>
 <body>
@@ -102,6 +108,42 @@
       if(list.length) render(list);   // upgrade to the latest uploads
     }).catch(function(){/* keep the built-in list */});
   }catch(e){}
+})();
+</script>
+<script>
+/* Twitch live-check: when @crackafpv is streaming, the featured tile swaps to the
+   live Twitch player + a "Watch on Twitch" button; otherwise the YouTube pick stays.
+   Uses decapi.me (no API key / no Twitch dev app needed), with an allorigins fallback. */
+(function(){
+  var TW="crackafpv";
+  var feat=document.getElementById('feature');
+  var cap=document.getElementById('featCap');
+  if(!feat||!cap) return;
+  var isLive=false;
+  function showTwitch(){
+    if(isLive) return; isLive=true;
+    var host=location.hostname||'hub.cracka.gg';
+    feat.innerHTML='<iframe src="https://player.twitch.tv/?channel='+TW+'&parent='+host+'&muted=false&autoplay=true" title="Cracka FPV live on Twitch" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen></iframe><span class="live-pill">&#9679; LIVE</span>';
+    if(!document.getElementById('twitchBtn')){
+      var b=document.createElement('a');
+      b.id='twitchBtn'; b.className='twitch-btn'; b.href='https://twitch.tv/'+TW; b.target='_blank'; b.rel='noopener';
+      b.innerHTML='&#9654;&nbsp; Watch on Twitch';
+      feat.parentNode.insertBefore(b, cap);
+    }
+    cap.innerHTML='&#128308; <b>@'+TW+'</b> is LIVE on Twitch right now';
+  }
+  function isLiveText(t){ return /\b\d+\s*(second|minute|hour|day)/i.test(t||''); }
+  function check(){
+    var u="https://decapi.me/twitch/uptime/"+TW;
+    fetch(u).then(function(r){return r.text();}).then(function(t){
+      if(isLiveText(t)) showTwitch();
+    }).catch(function(){
+      fetch("https://api.allorigins.win/raw?url="+encodeURIComponent(u))
+        .then(function(r){return r.text();}).then(function(t){ if(isLiveText(t)) showTwitch(); }).catch(function(){});
+    });
+  }
+  check();
+  setInterval(check, 90000);
 })();
 </script>
 </body>
