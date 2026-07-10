@@ -4,16 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Designs — Cracka.gg</title>
-<meta name="description" content="Custom designs by Cracka — 3D prints, models, graphics, FPV frames, and props.">
+<meta name="description" content="Custom designs by Cracka — the suite's card art and UI, plus 3D prints, FPV frames, graphics, and props.">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png"><link rel="icon" href="favicon.ico" sizes="any"><link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Chakra+Petch:wght@600;700&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-.ph-media{aspect-ratio:16/10;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  border-bottom:1px solid var(--line);background:rgba(255,255,255,.02);color:var(--ac,var(--cyan))}
-.ph-media .ic{font-size:46px;font-family:'Orbitron'}
-.ph-media small{font-family:'Share Tech Mono';font-size:11px;letter-spacing:1px;margin-top:8px;opacity:.85}
+.dz-media{position:relative;aspect-ratio:16/10;overflow:hidden;border-bottom:1px solid var(--line);background:#0a0a13}
+.dz-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+.card:hover .dz-media img{transform:scale(1.05)}
+.dz-media .tag{position:absolute;top:10px;right:10px;z-index:2;font-family:'Share Tech Mono';font-size:10px;letter-spacing:1px;
+  padding:3px 9px;border-radius:20px;background:rgba(10,10,19,.78);border:1px solid var(--ac,var(--cyan));color:var(--ac,var(--cyan))}
 </style>
 </head>
 <body>
@@ -35,24 +36,50 @@
 <div class="page-head"><div class="wrap">
   <div class="eyebrow">// Studio</div>
   <h1>Designs</h1>
-  <p>Custom design work — 3D prints and models, FPV frames and mounts, graphics, overlays, and props. Drop your renders and photos into these cards.</p>
+  <p>The graphic identity behind the whole suite — every tool's card art, UI, and branding in one cohesive cyberpunk look. Custom 3D prints and FPV designs drop in here too.</p>
 </div></div>
 
 <section><div class="wrap">
   <div class="grid">
-    <div class="card" style="--ac:var(--green)"><div class="ph-media"><span class="ic">◈</span><small>ADD IMAGE</small></div><div class="card-body"><h3>Design 01</h3><p>Name and describe this piece — model, print, or graphic.</p></div></div>
-    <div class="card" style="--ac:var(--purple)"><div class="ph-media"><span class="ic">◆</span><small>ADD IMAGE</small></div><div class="card-body"><h3>Design 02</h3><p>Name and describe this piece — model, print, or graphic.</p></div></div>
-    <div class="card" style="--ac:var(--cyan)"><div class="ph-media"><span class="ic">◇</span><small>ADD IMAGE</small></div><div class="card-body"><h3>Design 03</h3><p>Name and describe this piece — model, print, or graphic.</p></div></div>
-    <div class="card" style="--ac:var(--pink)"><div class="ph-media"><span class="ic">◈</span><small>ADD IMAGE</small></div><div class="card-body"><h3>Design 04</h3><p>Name and describe this piece — model, print, or graphic.</p></div></div>
-    <div class="card" style="--ac:var(--yellow)"><div class="ph-media"><span class="ic">◆</span><small>ADD IMAGE</small></div><div class="card-body"><h3>Design 05</h3><p>Name and describe this piece — model, print, or graphic.</p></div></div>
-    <div class="card" style="--ac:var(--cyan)"><div class="ph-media"><span class="ic">◇</span><small>ADD IMAGE</small></div><div class="card-body"><h3>Design 06</h3><p>Name and describe this piece — model, print, or graphic.</p></div></div>
+    <div class="card" style="--ac:var(--green)">
+      <div class="dz-media"><span class="tag">SUITE CARD</span><img loading="lazy" src="Cracka_Card_Suite_Launcher.png" alt="Suite Launcher card design"></div>
+      <div class="card-body"><h3>Suite Launcher</h3><p>One menu that detects and launches whichever suite tools live in its folder.</p></div>
+    </div>
+    <div class="card" style="--ac:var(--purple)">
+      <div class="dz-media"><span class="tag">SUITE CARD</span><img loading="lazy" src="Cracka_Card_License_Manager.png" alt="License Manager card design"></div>
+      <div class="card-body"><h3>License Manager</h3><p>The admin hub — 12 options for keys, reports, analytics, and suite-wide health checks.</p></div>
+    </div>
+    <div class="card" style="--ac:var(--cyan)">
+      <div class="dz-media"><span class="tag">SUITE CARD</span><img loading="lazy" src="Cracka_Card_Client_License_Portal.png" alt="Client License Portal card design"></div>
+      <div class="card-body"><h3>Client License Portal</h3><p>The customer-facing tool — login, record lookup, and one-click license install.</p></div>
+    </div>
+    <div class="card" style="--ac:var(--pink)">
+      <div class="dz-media"><span class="tag">SUITE CARD</span><img loading="lazy" src="Cracka_Card_File_Metadata_Scanner.png" alt="File Metadata Scanner card design"></div>
+      <div class="card-body"><h3>File Metadata Scanner</h3><p>Full drive inventory of any file type, exported to a rich 44-column spreadsheet report.</p></div>
+    </div>
+    <div class="card" style="--ac:var(--yellow)">
+      <div class="dz-media"><span class="tag">SUITE CARD</span><img loading="lazy" src="Cracka_Card_Duplicate_Track_Repair.png" alt="Duplicate Track Repair card design"></div>
+      <div class="card-body"><h3>Duplicate Track Repair</h3><p>Finds and safely clears duplicate audio files — recycle-bin only, never a permanent delete.</p></div>
+    </div>
+    <div class="card" style="--ac:var(--green)">
+      <div class="dz-media"><span class="tag">SUITE CARD</span><img loading="lazy" src="Cracka_Card_Rekordbox_Library_Optimizer.png" alt="Rekordbox Library Optimizer card design"></div>
+      <div class="card-body"><h3>Rekordbox Library Optimizer</h3><p>Path repair, duplicate-safe merge, third-party tag detection, and clean XML rewrite.</p></div>
+    </div>
+    <div class="card" style="--ac:var(--cyan)">
+      <div class="dz-media"><span class="tag">SUITE CARD</span><img loading="lazy" src="Cracka_Card_Network_IP_Utility.png" alt="Network / IP Utility card design"></div>
+      <div class="card-body"><h3>Network / IP Utility</h3><p>Network and IP diagnostics — scan, resolve, and troubleshoot connections at a glance.</p></div>
+    </div>
+    <div class="card" style="--ac:var(--purple)">
+      <div class="dz-media"><span class="tag">COMING SOON</span><img loading="lazy" src="Cracka_FPV_MadHatter_Transparent.png" alt="More designs coming soon" style="object-fit:contain;padding:22px;background:radial-gradient(circle at 50% 40%,rgba(180,0,255,.18),transparent 70%)"></div>
+      <div class="card-body"><h3>3D Prints &amp; FPV</h3><p>Custom frames, mounts, and HueForge prints — see the live gallery on the 3D Print page.</p></div>
+    </div>
   </div>
   <div style="text-align:center;margin-top:44px"><a class="btn btn-o" href="connect.html">Request a custom design</a></div>
 </div></section>
 
 <footer class="foot"><div class="wrap">
   <img src="Cracka_Wordmark_GreenPurple.png" alt="DJ Cracka">
-  <div class="foot-links"><a href="suite.html">The Suite</a><a href="designs.html">Designs</a><a href="about.html">About</a><a href="content.html">Content</a><a href="connect.html">Connect</a></div>
+  <div class="foot-links"><a href="suite.html">The Suite</a><a href="designs.html">Designs</a><a href="about.html">About</a><a href="content.html">Content</a><a href="connect.html">Connect</a><a href="prints.html">3D Print</a></div>
   <div class="midnight">Cyberpunk Vibe — <b>4</b><i>:</i><b>20</b> Midnight Edition</div>
   <div class="copy">© 2026 DJ Cracka Software Suite · cracka.gg · all rights reserved</div>
 </div></footer>
