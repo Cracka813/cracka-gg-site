@@ -1,0 +1,4 @@
+{
+  "note": "Age-gated (NSFW) MakerWorld model IDs to also show on the 3D-Print page. MakerWorld hides these from the anonymous profile list, so the cracka-makerworld Worker merges them from here. To add a future NSFW model: put its numeric model ID in the ids list below. That's it — the Worker fetches the model's own page (public, no login) and pulls the title + cover automatically. IDs only; no credentials, all public info.",
+  "ids": [646908]
+}
